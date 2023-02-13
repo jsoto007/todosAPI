@@ -8,4 +8,3 @@
 - Delete a todo
 
 
-### goals
