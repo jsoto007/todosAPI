@@ -3,12 +3,17 @@ class ApplicationController < Sinatra::Base
   
 
   get "/categories" do
-    categorization = Categorization.all.limit(10)
+    categorization = Categorization.all
 
     categorization.to_json(
       include:{tasks: {only: [:description]}}
     )
   end
+
+  get "/tasks" do 
+    task = Task.all.limit(10)
+    task.to_json
+  end 
 
   post "/tasks" do 
     task = Task.create(
@@ -18,6 +23,22 @@ class ApplicationController < Sinatra::Base
     )
     task.to_json
   end
+
+  delete "/categories/:id" do
+    categorization = Categorization.find(params[:id])
+    categorization.destroy
+    categorization.to_json
+  end 
+
+  patch "/tasks/:id" do 
+    task = Task.find(params[:id])
+    task.update(
+      description: params[:description]
+    )
+    task.to_json
+  end 
+
+
 
 
 
