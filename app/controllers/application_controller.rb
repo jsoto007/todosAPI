@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
     categorization = Categorization.all
 
     categorization.to_json(
-      include:{tasks: {only: [:description]}}
+      include:{tasks: {only: [:description, :id]}}
     )
   end
 
@@ -15,6 +15,15 @@ class ApplicationController < Sinatra::Base
     task.to_json
   end 
 
+  post "/categories/:id" do
+    categorization = Categorization.find(params[:id]).tasks.create(
+      name: params[:name],
+      description: params[:description],
+    )
+    categorization.to_json
+  end 
+
+#not using at the momment to be deleted 
   post "/tasks" do 
     task = Task.create(
       name: params[:name],
@@ -28,6 +37,12 @@ class ApplicationController < Sinatra::Base
     categorization = Categorization.find(params[:id])
     categorization.destroy
     categorization.to_json
+  end 
+
+  delete "/tasks/:id" do 
+    task = Task.find(params[:id])
+    task.destroy
+    task.to_json
   end 
 
   patch "/tasks/:id" do 
