@@ -6,15 +6,9 @@ class ApplicationController < Sinatra::Base
     categorization = Categorization.all
 
     categorization.to_json(
-      include:{tasks: {only: [:description, :id, :created_at, :categorization_id, :updated_at]}}
+      include: :tasks
     )
   end
-
-  #not using
-  # get "/tasks" do 
-  #   task = Task.all.limit(10)
-  #   task.to_json
-  # end 
 
   post "/tasks" do 
     #make it using the collection methods
@@ -41,14 +35,12 @@ class ApplicationController < Sinatra::Base
     categorization = Categorization.find(params[:id])
     categorization.tasks.destroy
     categorization.destroy
-    #also destroy all dependencies
-    # categorization.to_json
   end 
 
   delete "/tasks/:id" do 
     task = Task.find(params[:id])
     task.destroy
-    # task.to_json
+
   end 
 
   patch "/tasks/:id" do 
@@ -56,7 +48,6 @@ class ApplicationController < Sinatra::Base
     task.update(
       description: params[:description]
     )
-   
     task.to_json
   end 
 
