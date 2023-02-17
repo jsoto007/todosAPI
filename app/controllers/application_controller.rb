@@ -10,12 +10,14 @@ class ApplicationController < Sinatra::Base
     )
   end
 
-  get "/tasks" do 
-    task = Task.all.limit(10)
-    task.to_json
-  end 
+  #not using
+  # get "/tasks" do 
+  #   task = Task.all.limit(10)
+  #   task.to_json
+  # end 
 
   post "/tasks" do 
+    #make it using the collection methods
     task = Task.create(
       name: params[:name],
       description: params[:description],
@@ -24,22 +26,19 @@ class ApplicationController < Sinatra::Base
     task.to_json
   end
 
-  delete "/categories/tasks/:id" do
-    task = Task.find(params[:id])
-    task.destroy
-    task.to_json
-  end
-
+#not using
   delete "/categories/:id" do
     categorization = Categorization.find(params[:id])
+    categorization.Tasks.destroy
     categorization.destroy
-    categorization.to_json
+    #also destroy all dependencies
+    # categorization.to_json
   end 
 
   delete "/tasks/:id" do 
     task = Task.find(params[:id])
     task.destroy
-    task.to_json
+    # task.to_json
   end 
 
   patch "/tasks/:id" do 
@@ -47,12 +46,9 @@ class ApplicationController < Sinatra::Base
     task.update(
       description: params[:description]
     )
+   
     task.to_json
   end 
-
-
-
-
 
 
 
