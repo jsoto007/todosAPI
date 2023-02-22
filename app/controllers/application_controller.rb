@@ -26,6 +26,15 @@ class ApplicationController < Sinatra::Base
     )
   end 
 
+  post "/categories/tasks/:id" do
+    new_task = Task.create(
+      name: params[:name],
+      description: params[:description],
+      categorization: Categorization.find(params[:id])
+    )
+    new_task.to_json
+  end 
+
   post "/tasks" do 
     task = Task.create(
       name: params[:name],
