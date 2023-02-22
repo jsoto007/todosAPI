@@ -37,7 +37,6 @@ class ApplicationController < Sinatra::Base
 
   delete "/categories/:id" do
     categorization = Categorization.find(params[:id])
-    categorization.tasks.destroy_all
     categorization.destroy
   end 
 
