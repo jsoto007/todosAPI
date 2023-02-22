@@ -10,13 +10,6 @@ class ApplicationController < Sinatra::Base
     )
   end
 
-  get "/categories/:id" do
-    categorization = Categorization.find(params[:id])
-    categorization.to_json(
-      include: :tasks
-    )
-  end
-
   post "/categories" do 
     categorisation = Categorization.create(
       name: params[:name]
@@ -26,11 +19,11 @@ class ApplicationController < Sinatra::Base
     )
   end 
 
-  post "/categories/tasks/:id" do
+  post "/categories/:category_id/tasks" do
     new_task = Task.create(
       name: params[:name],
       description: params[:description],
-      categorization: Categorization.find(params[:id])
+      categorization: Categorization.find(params[:category_id])
     )
     new_task.to_json
   end 
