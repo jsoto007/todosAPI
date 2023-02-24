@@ -1,4 +1,5 @@
-# Phase 3 Project# todos_api
+# About
+This is a tasks database using the following models: Categorization has_many: tasks and Tasks belongs_to :Categorization. This API sends back JSON formatted data. 
 
 
 ## MVP  
