@@ -14,10 +14,10 @@ This is a tasks database using the following models: Categorization has_many: ta
 - Use the `git clone` command, paste the GitHub repo, and press enter.
 - CD (change directory) into the file.
 - Open the file.
-- Run `npm install` in the terminal to install all dependencies. 
+- Run `buldle install` in the terminal to install all dependencies. 
 - This Web-App is meant to work with a front-end React.js APP found HERE: `https://github.com/jsoto007/task-frontend`
-- Follow the instructions in the `todos-frontend` or modify the fetch requests to use the data of your choice. 
-- Run  `npm start ` in your terminal to open the page in your internet browser.
+- Follow the instructions in the `todos-frontend` or use a frontend of your choice. 
+- Run  `rake server` in your terminal to start the server and open `http://localhost:9292/categories` in your internet browser to see the data.
 
 ## Working With this API
 
