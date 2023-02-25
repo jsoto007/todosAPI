@@ -4,7 +4,7 @@ This is a tasks database using the following models: Categorization has_many: ta
 
 ## Requirements to install and run this program.
 - task-frontend, a react app built to work with this API. The link is in the instructions. 
-- Node Package Manager. 
+- Ruby
 - Access to a terminal. 
 - Internet browser. 
 
