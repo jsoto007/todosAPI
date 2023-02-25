@@ -80,7 +80,6 @@ The DELETE or PATCH are sent to `/tasks/:id` :id being the dynamic part of the U
 ## Technologies
 - Ruby 
 - Active Record
-- 
 - HTML
 
 ### Resources #
@@ -93,3 +92,4 @@ https://guides.rubyonrails.org/active_record_migrations.html
 
 Active Record associatoins: 
 https://guides.rubyonrails.org/association_basics.html
+
