@@ -21,7 +21,7 @@ This is a tasks database using the following models: Categorization has_many: ta
 
 ## Working With this API
 
-###fetch: read
+### fetch: read
 `http://localhost:9292/categories`
 When making a fetch request, the todosAPI will return a JSON-formatted object like the one below:
 This object will include all categories and their corresponding tasks. 
@@ -65,11 +65,11 @@ A POST request for a new Category can be sent to the same URL.
 
 ##### NOTE: The first part of the URLs below is `http://localhost:9292/` or the port of your choice. 
 
-###DELETE category
+### DELETE category
 To delete a category, the user can send a request to `/categories/:id` with the `:id` being the dynamic part of the URL. 
 This request will delete the given category and all associated tasks. 
 
-###POST tasks
+### POST tasks
 
 To post a new task, the user can send a request to `/categories/:category_id/tasks` The :category_id is the dynamic part of the URL. This request will persist a new task to the database and will associate the task to the category by using Active Record associations. 
 
